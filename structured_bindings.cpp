@@ -103,7 +103,7 @@ bool ASTVisitor::VisitDecompositionDecl(clang::DecompositionDecl* decl) {
             //       * Free function get(Object)
             //       * Member function get()
             //       * Friend member function get(Object)
-            rewritten_decl += type_string + " " + var->getNameAsString() + " = get<" + std::to_string(index) + ">(" + temp_name + ");\n";
+            rewritten_decl += type_string + " " + var->getNameAsString() + " = ::std::get<" + std::to_string(index) + ">(" + temp_name + ");\n";
         }
     } else {
         // Decomposed types are references to the respective data members
